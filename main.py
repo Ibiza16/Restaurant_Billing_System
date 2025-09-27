@@ -1,9 +1,8 @@
-"""------------------------------------ Project Made By Vijay Sehgal-----------------------------------------------"""
+
 
 from tkinter import *
 import random
 import reportlab
-from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import time
 from reportlab.lib.pagesizes import A4
@@ -66,7 +65,6 @@ f2.configure(background='white')
 lblInfo = Label(Tops, font=('arial', 64, 'bold'), text="Bite & Sip", bd=9)
 lblInfo.grid(row=0, column=0)
 
-# ============================================== Methods Declaration ================================================
 
 
 # ======================================================== Cost of Items ====================================
@@ -221,6 +219,7 @@ def Receipt():
                       SubTotal.get() + "\n")
     txtReceipt.insert(END, 'Service Charge: \t\t\t\t\t' + ServiceCharge.get() + "\t\t\tTotal Cost:\t\t\t\t\t" + TotalCost.get() + "\n")
 
+# ====================================================== Printing Receipt ======================
 
 
 
@@ -289,12 +288,9 @@ def print_receipt_pdf():
     
      y -= 40
     c.setFont("Helvetica-BoldOblique", 14)
-    c.drawCentredString(width / 2, y, "Thank you! Visit us again!")
-
+    c.drawCentredString(width / 2, y, "Thank you! Visit us again!")   
 
     c.save()
-
-    # Optionally open the PDF after generation (Windows only)
     try:
         os.startfile(file_path)
     except AttributeError:
@@ -387,7 +383,7 @@ def chkbutton_value():
         txtCappuccino.configure(state=DISABLED)
         E_Cappuccino.set("0")
 
-# =======================================================================================================
+
 
 
 # ======================================================= Variables ===============================================
@@ -588,10 +584,7 @@ txtCostofCakesandDrinks.grid(row=3, column=1, sticky=W)
 lblServiceCharge = Label(f2aa, font=('arial', 16, 'bold'), text="Service Charge", bd=8)
 lblServiceCharge.grid(row=4, column=0, sticky=W)
 txtServiceCharge = Entry(f2aa, font=('arial', 16, 'bold'), bd=8, justify="left", textvariable=ServiceCharge)
-txtServiceCharge.grid(row=4, column=1, sticky=W)
-
-
-
+txtServiceCharge.grid(row=4, column=1, sticky=W)    
 
 
 # ======================================Payment Information(f2ab)===================================================
